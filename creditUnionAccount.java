@@ -32,4 +32,55 @@ public class CreditUnionAccount
       loanDuration = 0;
    }
 
+   //Methods
+   //Set methods for  the instance varaibles
+   
+   public void setCustName(String n)
+   {
+      custName = n;
+   }
+   
+   public void setShareBalance(double bal)
+   {
+      shareBalance = WELCOME_BALANCE + bal;
+   }
+   
+   public void setLoanBalance(double loan)
+   {
+      loanBalance = loan;
+   }
+   
+   public void setLoanDuration(int duration)
+   {
+      loanDuration = duration;
+   }
+    
+   //Get methods for instance varaibles
+      
+   public int getAccountNumber()
+   {
+      return accNumber;
+   } 
+        
+   public String getCustName()
+   {
+      return custName;
+   }
+            
+   public double getShareBalance()
+   {
+      return shareBalance;
+   }
+          
+   public double getLoanBalance()
+   {
+      return loanBalance;
+   }
+   
+   public int getLoanDuration()
+   {
+      return loanDuration;
+   }
+    
+
       
