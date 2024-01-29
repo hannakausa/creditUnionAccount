@@ -81,6 +81,80 @@ public class CreditUnionAccount
    {
       return loanDuration;
    }
-    
+   //Other methods  
+      
+   public void depositToShares (double deposit)
+   {
+      shareBalance = shareBalance + deposit;
+      System.out.print("You have now " + shareBalance + " funds in your account");
+   }
+      
+   public void makeLoanPayment (double repayment)
+   {
+      if(repayment > loanBalance)
+      {
+         System.out.print("You cannot pay more then " + loanBalance + " towards your loan");
+      }
+      else
+      {
+         loanBalance = loanBalance - repayment;
+         System.out.println("You have paid " + repayment + " towards your loan");
+         System.out.println("You have left " + loanBalance + " to pay");
+      }
+    }
+      
+   public void withdrawFromShares (double withdraw)
+   {
+      if(withdraw > (shareBalance - loanBalance))
+      {
+      System.out.println("Insufiicent funds");
+      System.out.println("You can only withdraw up to " + (shareBalance - loanBalance));
+      }
+      else
+      {
+      shareBalance = shareBalance - withdraw;
+      System.out.println("You have withdrew " + withdraw);
+      System.out.println("You have left " + (shareBalance - loanBalance) + " funds available to withdraw");
+      }
+   }
+      
+   public void issueLoan (double loan, int duration)
+   {
+      if(loanBalance != 0)         //assumption made that customer can only  have 1 loan at time
+      {
+         System.out.print("Loan not approved, you already have a loan with us");
+      }
+      else 
+      {
+         if(loan < (shareBalance *3))
+         {
+            loanBalance = loan;
+            loanDuration = duration;
+            System.out.println("You have borrowed " + loanBalance + " for " + loanDuration + " months");
+         }
+         else
+         {
+            System.out.print("We are sorry loan not approved, You can borrow only up to " + (shareBalance *3));
+         }
+      }
+   }
+         
+   public double calcWeeklyLoan()
+   {
+         return   loanBalance/(loanDuration * 4);   // assumption that we have 4 weeks in a month
+   }
+      
+   public double calcMonthLoan()
+   {
+      
+     return loanBalance/loanDuration;
+   }
+      
+   public String toString()
+   {
+      return "Account No: "+ accNumber +  "\nCustomer Name: "+ custName
+      + "\nAccount Balance: "+ shareBalance + "\nLoan Balance: "+ loanBalance + "\nLoan Duration: "+ loanDuration;
+   }
+}
 
       
